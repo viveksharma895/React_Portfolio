@@ -11,7 +11,6 @@ const projects = [
       "https://pulseshift-dev.aglprojects.co.in/images/Pulse_shift_logo_orange.svg",
     techStack: [
       "React",
-      "Next.js",
       "TypeScript",
       "Tailwind CSS",
       "MongoDB",
@@ -60,7 +59,7 @@ const projects = [
 const Projects = () => {
   usePageMeta(
     "Projects - Vivek Sharma | Frontend Engineer Delivery",
-    "Enterprise-grade projects by Vivek Sharma including Pulse Shift, Maruti Suzuki India and TVS Motor Company built with React, Next.js and TypeScript."
+    "Enterprise-grade projects by Vivek Sharma including Pulse Shift, Maruti Suzuki India and TVS Motor Company built with React, and TypeScript.",
   );
 
   return (
@@ -92,7 +91,9 @@ const Projects = () => {
                     {project.name}
                   </h3>
 
-                  <h4 className="text-lg md:text-xl font-medium mb-8">{project.role}</h4>
+                  <h4 className="text-lg md:text-xl font-medium mb-8">
+                    {project.role}
+                  </h4>
 
                   <div>
                     <p className="text-gray-700 leading-8 mb-6">

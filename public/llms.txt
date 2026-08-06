@@ -1,6 +1,6 @@
 # Vivek Sharma | Frontend Engineer Delivery
 
-Portfolio and resume of Vivek Sharma, a frontend engineer with 8+ years of experience building scalable, high-performance web applications for enterprise clients such as Tata Motors and Maruti Suzuki. Expert in React.js, Next.js, TypeScript, Node.js, and modern frontend development.
+Portfolio and resume of Vivek Sharma, a frontend engineer with 8+ years of experience building scalable, high-performance web applications for enterprise clients such as Tata Motors and Maruti Suzuki. Expert in React.js, TypeScript, Node.js, and modern frontend development.
 
 ## Key Pages
 

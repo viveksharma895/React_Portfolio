@@ -137,7 +137,7 @@ function AboutMe() {
                 </span>{" "}
                 with 8+ years of experience building scalable web applications
                 for enterprise clients, including Tata Motors and Maruti Suzuki.
-                Expertise in React.js, Next.js, TypeScript, and modern frontend
+                Expertise in React.js, TypeScript, and modern frontend
                 development, with hands-on experience in Node.js and MongoDB.
                 Proven track record of delivering high-performance, SEO-friendly
                 applications and collaborating effectively with cross-functional

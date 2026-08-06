@@ -123,6 +123,7 @@ const Projects = () => {
                   <img
                     src={project.image}
                     alt={project.name}
+                    loading="lazy"
                     className="max-w-[80%] h-auto object-cover"
                   />
                 </div>

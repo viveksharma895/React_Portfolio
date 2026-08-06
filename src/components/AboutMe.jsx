@@ -27,8 +27,9 @@ function AboutMe() {
             <div className="w-full max-w-[280px] shrink-0 overflow-hidden bg-[#f3ebe4] shadow-2xl sm:max-w-[320px] md:max-w-[350px]">
               <div className="flex flex-col items-center p-6 sm:p-8 lg:p-10">
                 <img
-                  src="/Newuser.png"
+                  src="/Newuser.webp"
                   alt="Vivek Sharma - Frontend Engineer Delivery"
+                  loading="lazy"
                   className="h-36 w-36 rounded-full object-cover sm:h-48 sm:w-48 md:h-56 md:w-56 lg:h-60 lg:w-60"
                 />
 
@@ -102,8 +103,11 @@ function AboutMe() {
                 className="animate-float absolute right-2 top-2 z-10 w-20 sm:right-4 sm:w-24 md:w-28 lg:w-32"
               >
                 <img
-                  src="/Projects_text.png"
+                  src="/Projects_text.webp"
                   alt="Projects"
+                  fetchPriority="high"
+                  width="141"
+                  height="148"
                   className="w-full"
                 />
               </Link>

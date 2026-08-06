@@ -52,6 +52,7 @@ const Footer = () => {
                 href="https://www.facebook.com/sham.vivek/"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Facebook"
                 className="flex h-9 w-9 items-center justify-center rounded-md bg-gray-100 text-black transition-all duration-300 hover:bg-black hover:text-white sm:h-10 sm:w-10"
               >
                 <FaFacebookF className="text-sm sm:text-base" />
@@ -60,6 +61,7 @@ const Footer = () => {
                 href="https://x.com/vivek_sham"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Twitter / X"
                 className="flex h-9 w-9 items-center justify-center rounded-md bg-gray-100 text-black transition-all duration-300 hover:bg-black hover:text-white sm:h-10 sm:w-10"
               >
                 <FaTwitter className="text-sm sm:text-base" />
@@ -68,6 +70,7 @@ const Footer = () => {
                 href="https://www.linkedin.com/in/viveksharmadeveloper/"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="LinkedIn"
                 className="flex h-9 w-9 items-center justify-center rounded-md bg-gray-100 text-black transition-all duration-300 hover:bg-black hover:text-white sm:h-10 sm:w-10"
               >
                 <FaLinkedinIn className="text-sm sm:text-base" />
@@ -76,6 +79,7 @@ const Footer = () => {
                 href="https://www.instagram.com/sham.vivek/"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Instagram"
                 className="flex h-9 w-9 items-center justify-center rounded-md bg-gray-100 text-black transition-all duration-300 hover:bg-black hover:text-white sm:h-10 sm:w-10"
               >
                 <FaInstagram className="text-sm sm:text-base" />

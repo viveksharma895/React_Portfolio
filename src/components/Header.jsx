@@ -26,8 +26,9 @@ export default function Header() {
         <div className="mx-auto flex items-center justify-between px-5 py-5">
           <Link to="/" className="flex flex-wrap items-center gap-x-2">
             <img
-              src="/indianflag.png"
+              src="/indianflag.webp"
               alt="Indian Flag"
+              loading="lazy"
               className="h-5 w-5 shrink-0"
             />
             <span className="text-lg font-semibold text-gray-800">

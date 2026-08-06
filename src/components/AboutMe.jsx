@@ -8,6 +8,7 @@ import {
   faFacebookF,
   faXTwitter,
 } from "@fortawesome/free-brands-svg-icons";
+import { FaArrowRight, FaWhatsapp } from "react-icons/fa";
 
 function AboutMe() {
   return (
@@ -26,7 +27,7 @@ function AboutMe() {
             <div className="w-full max-w-[280px] shrink-0 overflow-hidden bg-[#f3ebe4] shadow-2xl sm:max-w-[320px] md:max-w-[350px]">
               <div className="flex flex-col items-center p-6 sm:p-8 lg:p-10">
                 <img
-                  src="/user.png"
+                  src="/Newuser.png"
                   alt="Vivek Sharma - Frontend Engineer Delivery"
                   className="h-36 w-36 rounded-full object-cover sm:h-48 sm:w-48 md:h-56 md:w-56 lg:h-60 lg:w-60"
                 />
@@ -94,7 +95,18 @@ function AboutMe() {
             </div>
 
             {/* Right Content */}
-            <div className="w-full max-w-full px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12">
+            <div className="relative w-full max-w-full px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12">
+              <Link
+                to="/projects"
+                aria-label="Go to Projects"
+                className="animate-float absolute right-2 top-2 z-10 w-20 sm:right-4 sm:w-24 md:w-28 lg:w-32"
+              >
+                <img
+                  src="/Projects_text.png"
+                  alt="Projects"
+                  className="w-full"
+                />
+              </Link>
               <h1 className="text-3xl font-bold text-black sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
                 Good Day Everyone
               </h1>
@@ -103,20 +115,15 @@ function AboutMe() {
                 Here's who I am & what I do
               </h3>
 
-              <div className="mt-6 flex flex-wrap gap-3 sm:mt-8 sm:gap-4">
+              <div className="mt-6 flex flex-wrap items-center gap-3 sm:mt-8 sm:gap-4">
                 <a
                   href="/Vivek_Sharma_Engineer_Delivery.docx"
                   download
-                  className="rounded-full bg-blue-600 px-6 py-2 text-sm font-semibold text-white sm:px-8 sm:py-3 sm:text-base"
+                  className="inline-flex items-center gap-2 rounded-full bg-blue-600 px-6 py-2 text-sm font-semibold text-white sm:px-8 sm:py-3 sm:text-base"
                 >
                   RESUME
+                  <FaArrowRight aria-hidden="true" />
                 </a>
-                <Link
-                  to="/projects"
-                  className="rounded-full border border-black px-6 py-2 text-sm font-semibold sm:px-8 sm:py-3 sm:text-base"
-                >
-                  PROJECTS
-                </Link>
               </div>
 
               <p className="mt-8 leading-7 text-gray-700 sm:mt-10 sm:leading-8">
@@ -136,6 +143,16 @@ function AboutMe() {
           </div>
         </div>
       </div>
+
+      <a
+        href="https://wa.me/919717679664"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Chat on WhatsApp"
+        className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-green-500 text-white shadow-lg transition-transform hover:scale-110"
+      >
+        <FaWhatsapp size={28} />
+      </a>
     </section>
   );
 }

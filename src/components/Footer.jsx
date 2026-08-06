@@ -3,9 +3,14 @@ import {
   FaTwitter,
   FaLinkedinIn,
   FaInstagram,
+  FaArrowUp,
 } from "react-icons/fa";
 
 const Footer = () => {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <footer className="border-t border-gray-200 pt-6 pb-6 text-gray-600">
       <div className="mx-auto flex max-w-[1400px] flex-col items-center justify-between gap-8 px-6 md:flex-row">
@@ -78,6 +83,15 @@ const Footer = () => {
             </div>
           </div>
         </div>
+
+        {/* Scroll to top */}
+        <button
+          onClick={scrollToTop}
+          aria-label="Scroll to top"
+          className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-blue-600 text-white shadow-lg transition-all hover:-translate-y-1 hover:bg-blue-700"
+        >
+          <FaArrowUp />
+        </button>
       </div>
     </footer>
   );

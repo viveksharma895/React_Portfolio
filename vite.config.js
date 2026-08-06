@@ -11,7 +11,7 @@ export default defineConfig({
           if (id.includes("node_modules/react-dom") || id.includes("node_modules/react-router-dom")) {
             return "vendor";
           }
-          if (id.includes("node_modules/react-icons") || id.includes("node_modules/@fortawesome")) {
+          if (id.includes("node_modules/react-icons")) {
             return "icons";
           }
           if (id.includes("node_modules/react-hot-toast") || id.includes("node_modules/clsx")) {

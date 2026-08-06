@@ -1,14 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faLinkedinIn,
-  faGithub,
-  faInstagram,
-  faFacebookF,
-  faXTwitter,
-} from "@fortawesome/free-brands-svg-icons";
-import { FaArrowRight, FaWhatsapp } from "react-icons/fa";
+  FaArrowRight,
+  FaWhatsapp,
+  FaLinkedinIn,
+  FaGithub,
+  FaInstagram,
+  FaFacebookF,
+  FaTwitter,
+} from "react-icons/fa";
 
 function AboutMe() {
   return (
@@ -49,7 +49,7 @@ function AboutMe() {
                   aria-label="LinkedIn"
                   className="flex h-9 w-9 items-center justify-center rounded-md bg-gray-100 text-black transition-all duration-300 hover:bg-black hover:text-white sm:h-10 sm:w-10"
                 >
-                  <FontAwesomeIcon icon={faLinkedinIn} />
+                  <FaLinkedinIn />
                 </a>
 
                 <a
@@ -59,7 +59,7 @@ function AboutMe() {
                   aria-label="GitHub"
                   className="flex h-9 w-9 items-center justify-center rounded-md bg-gray-100 text-black transition-all duration-300 hover:bg-black hover:text-white sm:h-10 sm:w-10"
                 >
-                  <FontAwesomeIcon icon={faGithub} />
+                  <FaGithub />
                 </a>
 
                 <a
@@ -69,7 +69,7 @@ function AboutMe() {
                   aria-label="Instagram"
                   className="flex h-9 w-9 items-center justify-center rounded-md bg-gray-100 text-black transition-all duration-300 hover:bg-black hover:text-white sm:h-10 sm:w-10"
                 >
-                  <FontAwesomeIcon icon={faInstagram} />
+                  <FaInstagram />
                 </a>
 
                 <a
@@ -79,7 +79,7 @@ function AboutMe() {
                   aria-label="Facebook"
                   className="flex h-9 w-9 items-center justify-center rounded-md bg-gray-100 text-black transition-all duration-300 hover:bg-black hover:text-white sm:h-10 sm:w-10"
                 >
-                  <FontAwesomeIcon icon={faFacebookF} />
+                  <FaFacebookF />
                 </a>
 
                 <a
@@ -89,7 +89,7 @@ function AboutMe() {
                   aria-label="Twitter / X"
                   className="flex h-9 w-9 items-center justify-center rounded-md bg-gray-100 text-black transition-all duration-300 hover:bg-black hover:text-white sm:h-10 sm:w-10"
                 >
-                  <FontAwesomeIcon icon={faXTwitter} />
+                  <FaTwitter />
                 </a>
               </div>
             </div>

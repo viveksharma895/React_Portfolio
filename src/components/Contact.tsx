@@ -147,10 +147,10 @@ export const Contact: React.FC<ContactProps> = ({ preselectedService }) => {
   )}`;
 
   return (
-    <section id="contact" className="py-24 md:py-32 bg-[#121316] relative border-t border-white/10">
+    <section id="contact" className="py-12 sm:py-16 md:py-32 bg-[#121316] relative border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 pb-6 border-b border-white/10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 md:mb-14 pb-6 border-b border-white/10">
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#18191d] border border-white/10 text-xs font-mono font-bold text-[#c8f31d] uppercase tracking-widest mb-3">
               <span>Let's Connect</span>
@@ -165,7 +165,7 @@ export const Contact: React.FC<ContactProps> = ({ preselectedService }) => {
         </div>
 
         {/* Quick Scope Presets Strip */}
-        <div className="mb-12 p-6 rounded-2xl bg-[#18191d] border border-white/5 shadow-xl">
+        <div className="mb-8 md:mb-12 p-6 rounded-2xl bg-[#18191d] border border-white/5 shadow-xl">
           <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#c8f31d] mb-3 font-mono">
             <Sliders className="w-4 h-4" />
             <span>Fast Scope Presets (Click to Auto-Configure):</span>

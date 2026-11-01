@@ -13,10 +13,10 @@ export const Projects: React.FC = () => {
       : projectsData.filter((proj) => proj.category === activeCategory);
 
   return (
-    <section id="projects" className="py-24 md:py-32 relative bg-[#121316] border-t border-white/10">
+    <section id="projects" className="py-12 sm:py-16 md:py-32 relative bg-[#121316] border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 pb-6 border-b border-white/10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 md:mb-14 pb-6 border-b border-white/10">
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#18191d] border border-white/10 text-xs font-mono font-bold text-[#c8f31d] uppercase tracking-widest mb-3">
               <span>Selected Portfolio</span>

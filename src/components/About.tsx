@@ -7,7 +7,7 @@ interface AboutProps {
 
 export const About: React.FC<AboutProps> = ({ onContactClick }) => {
   return (
-    <section id="about" className="py-24 md:py-32 bg-[#0e0f11] relative">
+    <section id="about" className="py-12 sm:py-16 md:py-32 bg-[#0e0f11] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
           {/* Left Column: Portrait & Experience Frame (Geekfolio Style) */}

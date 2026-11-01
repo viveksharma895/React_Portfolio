@@ -35,10 +35,10 @@ const renderWhyIcon = (iconName: string) => {
 
 export const WhyWorkWithMe: React.FC = () => {
   return (
-    <section id="why-me" className="py-24 md:py-32 relative bg-[#0e0f11] border-t border-white/10">
+    <section id="why-me" className="py-12 sm:py-16 md:py-32 relative bg-[#0e0f11] border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 border-b border-white/10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 md:mb-16 pb-6 border-b border-white/10">
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#18191d] border border-white/10 text-xs font-mono font-bold text-[#c8f31d] uppercase tracking-widest mb-3">
               <span>Why Hire Me</span>
@@ -83,7 +83,7 @@ export const WhyWorkWithMe: React.FC = () => {
         </div>
 
         {/* Assurance Box */}
-        <div className="mt-14 p-8 rounded-3xl bg-[#18191d] border border-white/10 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
+        <div className="mt-10 md:mt-14 p-6 md:p-8 rounded-3xl bg-[#18191d] border border-white/10 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
           <div className="space-y-1 text-center md:text-left">
             <h4 className="text-xl font-bold text-white font-display">Direct Access, Zero Agency Middlemen</h4>
             <p className="text-xs sm:text-sm text-[#9ea0a6] max-w-xl">

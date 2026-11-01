@@ -8,7 +8,7 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ onExploreWork, onWorkTogether }) => {
   return (
-    <section id="hero" className="relative pt-32 pb-20 md:pt-44 md:pb-28 overflow-hidden geek-grid-pattern">
+    <section id="hero" className="relative pt-28 pb-14 md:pt-44 md:pb-28 overflow-hidden geek-grid-pattern">
       {/* Background ambient lighting */}
       <div
         className="pointer-events-none absolute top-10 left-1/4 w-[500px] h-[500px] bg-[#c8f31d]/5 blur-[120px] rounded-full -z-10"
@@ -404,7 +404,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreWork, onWorkTogether }) => 
         </div>
 
         {/* 4 Metrics Strip (Geekfolio Counters) */}
-        <div className="mt-16 pt-10 border-t border-white/10 grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="mt-12 md:mt-16 pt-10 border-t border-white/10 grid grid-cols-2 md:grid-cols-4 gap-6">
           <div className="p-5 rounded-2xl bg-[#18191d]/70 border border-white/5">
             <div className="text-3xl sm:text-4xl font-extrabold text-white font-display">08+</div>
             <div className="text-xs text-[#9ea0a6] uppercase tracking-wider font-semibold mt-1">Years Experience</div>

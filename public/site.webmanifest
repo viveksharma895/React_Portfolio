@@ -1,0 +1,35 @@
+{
+  "name": "Vivek Sharma — Frontend Engineer Delivery",
+  "short_name": "Vivek Sharma",
+  "description": "Portfolio of Vivek Sharma, Frontend Engineer Delivery specialising in React, Next.js and TypeScript.",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["portfolio", "business", "developer"],
+  "theme_color": "#0e0f11",
+  "background_color": "#0e0f11",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

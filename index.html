@@ -1,51 +1,70 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Primary SEO -->
+    <title>Vivek Sharma | Frontend Engineer Delivery | React &amp; TypeScript Expert</title>
     <meta
       name="title"
-      content="Vivek Sharma | Frontend Engineer Delivery | React, & TypeScript Expert"
+      content="Vivek Sharma | Frontend Engineer Delivery | React & TypeScript Expert"
     />
     <meta
       name="description"
-      content="Vivek Sharma - Frontend Engineer Delivery with 8+ years of experience building scalable, high-performance web applications for enterprise clients like Tata Motors and Maruti Suzuki. Expert in React.js, TypeScript, Node.js and modern frontend development. View projects, resume, and contact details."
+      content="Vivek Sharma – Engineer Delivery at AdGlobal360 Hakuhodo with 8+ years of experience building scalable, high-performance React, Next.js and e-commerce websites for Tata Motors, Maruti Suzuki and other enterprise brands."
     />
     <meta
       name="keywords"
-      content="resume, portfolio, Vivek Sharma, frontend developer, frontend engineer, engineer delivery, web developer, React.js, React, TypeScript, JavaScript, Angular, jQuery, Bootstrap, Tailwind CSS, Material UI, HTML5, CSS3, Node.js, MongoDB, REST APIs, SEO, web design, UI/UX, responsive web design, e-commerce websites, automotive websites, enterprise web applications, performance optimization, Google Analytics, GTM, Google Tag Manager, web accessibility, Gurgaon, India, hire frontend developer"
+      content="resume, portfolio, Vivek Sharma, frontend developer, frontend engineer, engineer delivery, web developer, React.js, React, Next.js, TypeScript, JavaScript, Angular, jQuery, Bootstrap, Tailwind CSS, Material UI, HTML5, CSS3, Node.js, MongoDB, REST APIs, SEO, web design, UI/UX, responsive web design, e-commerce websites, automotive websites, enterprise web applications, performance optimization, Google Analytics, GTM, Google Tag Manager, web accessibility, Gurgaon, India, hire frontend developer"
     />
     <meta name="author" content="Vivek Sharma" />
-    <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#4f46e5" />
-
-    <link
-      rel="preload"
-      as="image"
-      href="/Projects_text.webp"
-      fetchpriority="high"
+    <meta name="application-name" content="Vivek Sharma Portfolio" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta
+      name="googlebot"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
     />
-    <link rel="canonical" href="https://viveksharmacoder.in/" />
+    <meta name="bingbot" content="index, follow" />
+    <meta name="theme-color" content="#0e0f11" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="format-detection" content="telephone=no" />
 
+    <!-- Geo / local SEO -->
+    <meta name="geo.region" content="IN-HR" />
+    <meta name="geo.placename" content="Gurgaon, Haryana, India" />
+    <meta name="geo.position" content="28.4595;77.0266" />
+    <meta name="ICBM" content="28.4595, 77.0266" />
+
+    <!-- Canonical & language -->
+    <link rel="canonical" href="https://viveksharmacoder.in/" />
+    <link rel="alternate" hreflang="en" href="https://viveksharmacoder.in/" />
+    <link rel="alternate" hreflang="x-default" href="https://viveksharmacoder.in/" />
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Open Graph / Facebook / LinkedIn -->
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Vivek Sharma Portfolio" />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:url" content="https://viveksharmacoder.in/" />
     <meta
       property="og:title"
-      content="Vivek Sharma | Frontend Engineer Delivery | React, & TypeScript Expert"
+      content="Vivek Sharma | Frontend Engineer Delivery | React & TypeScript Expert"
     />
     <meta
       property="og:description"
-      content="Vivek Sharma - Frontend Engineer Delivery with 8+ years of experience building scalable, high-performance web applications for enterprise clients like Tata Motors and Maruti Suzuki. Expert in React.js, TypeScript, Node.js and modern frontend development. View projects, resume, and contact details."
+      content="Vivek Sharma – Engineer Delivery at AdGlobal360 Hakuhodo with 8+ years of experience building scalable, high-performance React, Next.js and e-commerce websites for Tata Motors, Maruti Suzuki and other enterprise brands."
     />
-    <meta
-      property="og:image"
-      content="https://viveksharmacoder.in/Newuser.webp"
-    />
-    <meta
-      property="og:image:alt"
-      content="Vivek Sharma - Frontend Engineer Delivery"
-    />
+    <meta property="og:image" content="https://viveksharmacoder.in/og-image.jpg" />
+    <meta property="og:image:secure_url" content="https://viveksharmacoder.in/og-image.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Vivek Sharma – Frontend Engineer Delivery" />
 
+    <!-- Twitter / X Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
@@ -53,37 +72,123 @@
     />
     <meta
       name="twitter:description"
-      content="Vivek Sharma - Frontend Engineer Delivery with 8+ years of experience building scalable, high-performance web applications for enterprise clients like Tata Motors and Maruti Suzuki. Expert in React.js, TypeScript, Node.js and modern frontend development. View projects, resume, and contact details."
+      content="Vivek Sharma – Engineer Delivery at AdGlobal360 Hakuhodo with 8+ years of experience building scalable, high-performance React, Next.js and e-commerce websites for Tata Motors, Maruti Suzuki and other enterprise brands."
     />
-    <meta
-      name="twitter:image"
-      content="https://viveksharmacoder.in/Newuser.webp"
+    <meta name="twitter:image" content="https://viveksharmacoder.in/og-image.jpg" />
+    <meta name="twitter:image:alt" content="Vivek Sharma – Frontend Engineer Delivery" />
+
+    <!-- Apple / mobile web app -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Vivek Sharma" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="msapplication-TileColor" content="#0e0f11" />
+
+    <!-- Self-hosted fonts (avoids third-party render-blocking requests) -->
+    <link
+      rel="preload"
+      href="/fonts/plus-jakarta-sans-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/sora-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
     />
 
-    <title>
-      Vivek Sharma | Frontend Engineer Delivery | React, & TypeScript Expert
-    </title>
-    <link rel="icon" type="image/webp" href="/favicon.webp" />
-    <link rel="apple-touch-icon" href="/favicon.webp" />
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-      media="print"
-      onload="this.media = 'all'"
-    />
-    <noscript>
-      <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
-        rel="stylesheet"
-      />
-    </noscript>
+    <!-- Icons -->
+    <link rel="icon" type="image/webp" href="/favicon.webp" sizes="64x64" />
+    <link rel="icon" type="image/png" href="/favicon-32.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+
+    <!-- Schema.org Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://viveksharmacoder.in/#person",
+            "name": "Vivek Sharma",
+            "givenName": "Vivek",
+            "familyName": "Sharma",
+            "jobTitle": "Engineer Delivery & Senior Frontend Developer",
+            "description": "Frontend engineer with 8+ years of experience building scalable, high-performance React, Next.js and e-commerce web applications for enterprise clients including Tata Motors and Maruti Suzuki.",
+            "url": "https://viveksharmacoder.in/",
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://viveksharmacoder.in/og-image.jpg",
+              "width": 1200,
+              "height": 630
+            },
+            "email": "mailto:sharma.vivek895@gmail.com",
+            "telephone": "+919717679664",
+            "worksFor": {
+              "@type": "Organization",
+              "name": "AdGlobal360 Hakuhodo, Ltd."
+            },
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Gurgaon",
+              "addressRegion": "Haryana",
+              "addressCountry": "IN"
+            },
+            "knowsAbout": [
+              "React.js",
+              "Next.js",
+              "TypeScript",
+              "JavaScript",
+              "Tailwind CSS",
+              "Node.js",
+              "WordPress",
+              "WooCommerce",
+              "Shopify",
+              "Core Web Vitals",
+              "Figma to Code",
+              "Web Performance Optimization",
+              "SEO",
+              "Web Accessibility"
+            ],
+            "knowsLanguage": ["English", "Hindi"]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://viveksharmacoder.in/#website",
+            "url": "https://viveksharmacoder.in/",
+            "name": "Vivek Sharma Portfolio",
+            "description": "Portfolio of Vivek Sharma, Frontend Engineer Delivery, React and Next.js specialist.",
+            "inLanguage": "en",
+            "publisher": {
+              "@id": "https://viveksharmacoder.in/#person"
+            }
+          },
+          {
+            "@type": "ProfilePage",
+            "@id": "https://viveksharmacoder.in/#webpage",
+            "url": "https://viveksharmacoder.in/",
+            "name": "Vivek Sharma | Frontend Engineer Delivery | React & TypeScript Expert",
+            "description": "Portfolio of Vivek Sharma, Engineer Delivery at AdGlobal360 Hakuhodo with 8+ years of frontend engineering experience.",
+            "isPartOf": {
+              "@id": "https://viveksharmacoder.in/#website"
+            },
+            "about": {
+              "@id": "https://viveksharmacoder.in/#person"
+            },
+            "mainEntity": {
+              "@id": "https://viveksharmacoder.in/#person"
+            },
+            "inLanguage": "en"
+          }
+        ]
+      }
+    </script>
   </head>
-  <body>
+  <body class="bg-[#0e0f11] text-[#e0e0e0] antialiased selection:bg-[#c8f31d] selection:text-black">
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

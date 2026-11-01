@@ -122,7 +122,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         {/* Bottom Bar with Dynamic Year and Back to Top Button */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-400 font-mono">
           <p>
-            &copy; {currentYear} Vivek Sharma. Geekfolio Freelancer Dark Theme. All rights reserved.
+            &copy; {currentYear} Vivek Sharma. viveksharmacoder.in All rights reserved.
           </p>
 
           <button

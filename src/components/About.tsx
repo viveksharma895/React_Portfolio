@@ -1,5 +1,5 @@
 import React from 'react';
-import { Briefcase, MapPin, ArrowRight } from 'lucide-react';
+import { Briefcase, MapPin, ArrowRight, Download } from 'lucide-react';
 
 interface AboutProps {
   onContactClick: () => void;
@@ -180,6 +180,14 @@ export const About: React.FC<AboutProps> = ({ onContactClick }) => {
                 <span>Let's Discuss Your Project</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
+              <a
+                href="/Vivek_Sharma_Engineer_Delivery.docx"
+                download="Vivek_Sharma_Engineer_Delivery.docx"
+                className="inline-flex items-center gap-2 px-7 py-3.5 text-xs font-bold uppercase tracking-wider text-white bg-transparent border border-white/20 hover:border-[#c8f31d] hover:text-[#c8f31d] rounded-full transition-all"
+              >
+                <span>Download Resume</span>
+                <Download className="w-4 h-4" />
+              </a>
             </div>
           </div>
         </div>

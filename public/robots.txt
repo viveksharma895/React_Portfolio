@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
 
+# Important public assets (CSS, JS, images) are allowed for proper rendering
 Sitemap: https://viveksharmacoder.in/sitemap.xml
+Host: https://viveksharmacoder.in

@@ -8,7 +8,7 @@ A modern, high-performance personal portfolio website engineered for **Vivek Sha
 
 - **Name:** Vivek Sharma
 - **Current Role:** Engineer Delivery at **AdGlobal360 Hakuhodo, Ltd.**
-- **Experience:** 8+ Years building scalable web applications for enterprise clients (including **Tata Motors** and **Maruti Suzuki**).
+- **Experience:** 8+ Years building scalable web applications for enterprise clients (including **Pulse Shift Tool**, **Maruti Suzuki**, **TVS Motors**, and **Muthoot Finance**).
 - **Location:** Gurgaon, Haryana, India
 - **Phone / WhatsApp:** [+91 9717679664](tel:+919717679664)
 - **Email:** [sharma.vivek895@gmail.com](mailto:sharma.vivek895@gmail.com)
@@ -31,7 +31,7 @@ A modern, high-performance personal portfolio website engineered for **Vivek Sha
 ## 3. Implemented Sections
 
 1. **Navigation:** Sticky top bar following the strict 3-zone contract (Wordmark brand, concise section links, "Hire Me" primary action, mobile drawer).
-2. **Hero Section:** Split layout with high-impact headline, bio, CTAs ("Let's Work Together", "Explore My Work"), user portrait (`/public/assets/aistudio/Newuser_2ba9e273.webp`), direct email/WhatsApp links, and full-width proof strip (Tata Motors & Maruti Suzuki delivery, 8+ years experience).
+2. **Hero Section:** Split layout with high-impact headline, bio, CTAs ("Let's Work Together", "Explore My Work"), user portrait (`/public/assets/aistudio/Newuser_2ba9e273.webp`), direct email/WhatsApp links, and full-width proof strip (Pulse Shift Tool, Maruti Suzuki, TVS Motors & Muthoot Finance delivery, 8+ years experience).
 3. **About Me:** Complete background, current role at AdGlobal360 Hakuhodo, core competencies, and delivery highlights.
 4. **Technical Skills:** Categorized filter tabs (Frontend, Frameworks, Programming, CMS & E-commerce, Analytics, Infrastructure/DevOps). No fake percentage scores.
 5. **Services:** 6 premium service cards (Website Development, Figma/PSD to Code, E-commerce Development, Website Performance Optimization, Analytics & Tracking, Website Maintenance & Support) with 1-click "Inquire About This" prefill triggers.

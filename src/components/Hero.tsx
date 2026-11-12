@@ -383,7 +383,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreWork, onWorkTogether }) => 
                   {/* Bottom Role Info */}
                   <div className="absolute bottom-4 left-4 max-w-[210px] bg-[#18191d]/90 backdrop-blur-md p-3 rounded-xl border border-white/10">
                     <p className="text-xs font-bold text-white">AdGlobal360 Hakuhodo</p>
-                    <p className="text-[11px] text-[#9ea0a6] mt-0.5">Tata Motors &amp; Maruti Suzuki</p>
+                    <p className="text-[11px] text-[#9ea0a6] mt-0.5">Maruti Suzuki, TVS Motors &amp; Muthoot Finance</p>
                   </div>
                 </div>
 
@@ -411,7 +411,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreWork, onWorkTogether }) => 
           </div>
 
           <div className="p-5 rounded-2xl bg-[#18191d]/70 border border-white/5">
-            <div className="text-xl sm:text-2xl font-bold text-[#c8f31d] font-display">Tata &amp; Maruti</div>
+            <div className="text-xl sm:text-2xl font-bold text-[#c8f31d] font-display">Pulse Shift, Maruti &amp; TVS</div>
             <div className="text-xs text-zinc-400 uppercase tracking-wider font-semibold mt-1">Enterprise Clients</div>
           </div>
 

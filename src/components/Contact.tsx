@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import {
   Phone,
   Mail,
@@ -12,23 +12,22 @@ import {
   ArrowUpRight,
   ShieldCheck,
   Sliders,
-} from 'lucide-react';
-import confetti from 'canvas-confetti';
+} from "lucide-react";
+import confetti from "canvas-confetti";
 
 interface ContactProps {
   preselectedService?: string;
 }
 
 export const Contact: React.FC<ContactProps> = ({ preselectedService }) => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [projectType, setProjectType] = useState('Website Development');
-  const [message, setMessage] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [projectType, setProjectType] = useState("Website Development");
+  const [message, setMessage] = useState("");
 
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [successData, setSuccessData] = useState<{
-    inquiryId: string;
     message: string;
   } | null>(null);
 
@@ -37,22 +36,24 @@ export const Contact: React.FC<ContactProps> = ({ preselectedService }) => {
   useEffect(() => {
     if (preselectedService) {
       setProjectType(preselectedService);
-      setMessage(`Hi Vivek, I would like to discuss a project regarding "${preselectedService}". Please share your availability and estimated timeline.`);
+      setMessage(
+        `Hi Vivek, I would like to discuss a project regarding "${preselectedService}". Please share your availability and estimated timeline.`,
+      );
     }
   }, [preselectedService]);
 
   const projectTypes = [
-    'Website Development',
-    'Figma / PSD to Code',
-    'E-commerce Development',
-    'Website Performance Optimization',
-    'Analytics & Tracking',
-    'Website Maintenance & Support',
-    'Other / Custom Consulting',
+    "Website Development",
+    "Figma / PSD to Code",
+    "E-commerce Development",
+    "Website Performance Optimization",
+    "Analytics & Tracking",
+    "Website Maintenance & Support",
+    "Other / Custom Consulting",
   ];
 
   const handleCopyEmail = () => {
-    navigator.clipboard.writeText('sharma.vivek895@gmail.com');
+    navigator.clipboard.writeText("sharma.vivek895@gmail.com");
     setCopiedEmail(true);
     setTimeout(() => setCopiedEmail(false), 2000);
   };
@@ -62,52 +63,78 @@ export const Contact: React.FC<ContactProps> = ({ preselectedService }) => {
     setMessage(`Looking for ${type}. Let's discuss the scope and details.`);
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setErrorMessage(null);
 
-    if (!name.trim()) {
-      setErrorMessage('Please enter your full name.');
+    const trimmedName = name.trim();
+    const trimmedEmail = email.trim();
+    const trimmedMessage = message.trim();
+
+    if (!trimmedName) {
+      setErrorMessage("Please enter your full name.");
       return;
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!email.trim() || !emailRegex.test(email.trim())) {
-      setErrorMessage('Please provide a valid email address so Vivek can get back to you.');
+    if (!trimmedEmail || !emailRegex.test(trimmedEmail)) {
+      setErrorMessage(
+        "Please provide a valid email address so Vivek can get back to you.",
+      );
       return;
     }
 
-    if (!message.trim() || message.trim().length < 10) {
-      setErrorMessage('Please describe your project (minimum 10 characters).');
+    if (!trimmedMessage || trimmedMessage.length < 10) {
+      setErrorMessage("Please describe your project (minimum 10 characters).");
+      return;
+    }
+
+    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+    if (!accessKey) {
+      setErrorMessage(
+        "Form configuration is missing. Please email sharma.vivek895@gmail.com or message on WhatsApp.",
+      );
       return;
     }
 
     setLoading(true);
 
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: name.trim(),
-          email: email.trim(),
-          projectType,
-          message: message.trim(),
-        }),
+      const formData = new FormData();
+      formData.append("access_key", accessKey);
+      formData.append("name", trimmedName);
+      formData.append("email", trimmedEmail);
+      formData.append("project_type", projectType);
+      formData.append(
+        "subject",
+        `New Project Inquiry: ${projectType} - ${trimmedName}`,
+      );
+      formData.append("from_name", "Vivek Sharma Portfolio");
+      formData.append("message", trimmedMessage);
+
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
       });
 
       const data = await response.json();
 
       if (!response.ok || !data.success) {
-        throw new Error(data.error || 'Failed to submit inquiry. Please try WhatsApp or email.');
+        throw new Error(
+          data.message ||
+            "Failed to submit inquiry. Please try WhatsApp or email.",
+        );
       }
 
       setSuccessData({
-        inquiryId: data.inquiryId,
-        message: data.message,
+        message:
+          data.message ||
+          "Thank you! Your message has been sent successfully. Vivek will respond within 24 hours.",
       });
+      setName("");
+      setEmail("");
+      setMessage("");
+      e.currentTarget.reset();
 
       try {
         confetti({
@@ -119,9 +146,10 @@ export const Contact: React.FC<ContactProps> = ({ preselectedService }) => {
         // Safe confetti fallback
       }
     } catch (err: any) {
-      console.error('Submission error:', err);
+      console.error("Submission error:", err);
       setErrorMessage(
-        err.message || 'Unable to connect to the backend server. Please email sharma.vivek895@gmail.com or message on WhatsApp.'
+        err.message ||
+          "Unable to send your message right now. Please email sharma.vivek895@gmail.com or message on WhatsApp.",
       );
     } finally {
       setLoading(false);
@@ -129,25 +157,28 @@ export const Contact: React.FC<ContactProps> = ({ preselectedService }) => {
   };
 
   const resetForm = () => {
-    setName('');
-    setEmail('');
-    setMessage('');
+    setName("");
+    setEmail("");
+    setMessage("");
     setSuccessData(null);
     setErrorMessage(null);
   };
 
   const whatsappMessage = encodeURIComponent(
-    `Hi Vivek, I'm reaching out from your portfolio website.\n\nName: ${name || 'Prospective Client'}\nProject: ${projectType}\nMessage: ${message || 'I would like to discuss a project with you.'}`
+    `Hi Vivek, I'm reaching out from your portfolio website.\n\nName: ${name || "Prospective Client"}\nProject: ${projectType}\nMessage: ${message || "I would like to discuss a project with you."}`,
   );
 
   const mailtoLink = `mailto:sharma.vivek895@gmail.com?subject=${encodeURIComponent(
-    `Project Inquiry: ${projectType} - ${name || 'Client'}`
+    `Project Inquiry: ${projectType} - ${name || "Client"}`,
   )}&body=${encodeURIComponent(
-    `Hi Vivek,\n\nI am contacting you regarding a ${projectType} project.\n\nProject Overview:\n${message}\n\nBest regards,\n${name}\n${email}`
+    `Hi Vivek,\n\nI am contacting you regarding a ${projectType} project.\n\nProject Overview:\n${message}\n\nBest regards,\n${name}\n${email}`,
   )}`;
 
   return (
-    <section id="contact" className="py-12 sm:py-16 md:py-32 bg-[#121316] relative border-t border-white/10">
+    <section
+      id="contact"
+      className="py-12 sm:py-16 md:py-32 bg-[#121316] relative border-t border-white/10"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 md:mb-14 pb-6 border-b border-white/10">
@@ -160,7 +191,8 @@ export const Contact: React.FC<ContactProps> = ({ preselectedService }) => {
             </h2>
           </div>
           <p className="text-sm text-[#9ea0a6] max-w-md mt-4 md:mt-0 font-mono">
-            Looking to build a new website, improve an existing one, or need ongoing development support? Let's discuss your project.
+            Looking to build a new website, improve an existing one, or need
+            ongoing development support? Let's discuss your project.
           </p>
         </div>
 
@@ -173,28 +205,30 @@ export const Contact: React.FC<ContactProps> = ({ preselectedService }) => {
           <div className="flex flex-wrap gap-2.5">
             <button
               type="button"
-              onClick={() => handleScopePreset('Figma / PSD to Code')}
+              onClick={() => handleScopePreset("Figma / PSD to Code")}
               className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#121316] hover:bg-[#c8f31d] hover:text-black text-zinc-300 border border-white/10 transition-colors"
             >
               Figma to React App (2-4 wks)
             </button>
             <button
               type="button"
-              onClick={() => handleScopePreset('E-commerce Development')}
+              onClick={() => handleScopePreset("E-commerce Development")}
               className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#121316] hover:bg-[#c8f31d] hover:text-black text-zinc-300 border border-white/10 transition-colors"
             >
               Custom WooCommerce / Shopify Store
             </button>
             <button
               type="button"
-              onClick={() => handleScopePreset('Website Performance Optimization')}
+              onClick={() =>
+                handleScopePreset("Website Performance Optimization")
+              }
               className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#121316] hover:bg-[#c8f31d] hover:text-black text-zinc-300 border border-white/10 transition-colors"
             >
               Speed &amp; Core Web Vitals Audit (1-2 wks)
             </button>
             <button
               type="button"
-              onClick={() => handleScopePreset('Website Maintenance & Support')}
+              onClick={() => handleScopePreset("Website Maintenance & Support")}
               className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#121316] hover:bg-[#c8f31d] hover:text-black text-zinc-300 border border-white/10 transition-colors"
             >
               Monthly Engineering Retainer
@@ -217,7 +251,9 @@ export const Contact: React.FC<ContactProps> = ({ preselectedService }) => {
                   <Phone className="w-5 h-5" />
                 </div>
                 <div className="flex-1">
-                  <span className="text-xs text-[#9ea0a6] block mb-0.5 font-mono uppercase">Phone &amp; WhatsApp</span>
+                  <span className="text-xs text-[#9ea0a6] block mb-0.5 font-mono uppercase">
+                    Phone &amp; WhatsApp
+                  </span>
                   <a
                     href="tel:+919717679664"
                     className="text-base font-bold text-white hover:text-[#c8f31d] transition-colors font-mono block"
@@ -242,7 +278,9 @@ export const Contact: React.FC<ContactProps> = ({ preselectedService }) => {
                   <Mail className="w-5 h-5" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <span className="text-xs text-[#9ea0a6] block mb-0.5 font-mono uppercase">Email Inbox</span>
+                  <span className="text-xs text-[#9ea0a6] block mb-0.5 font-mono uppercase">
+                    Email Inbox
+                  </span>
                   <a
                     href="mailto:sharma.vivek895@gmail.com"
                     className="text-sm font-bold text-white hover:text-[#c8f31d] transition-colors font-mono truncate block"
@@ -256,7 +294,9 @@ export const Contact: React.FC<ContactProps> = ({ preselectedService }) => {
                     {copiedEmail ? (
                       <>
                         <Check className="w-3.5 h-3.5 text-[#c8f31d]" />
-                        <span className="text-[#c8f31d] font-bold">Copied to clipboard</span>
+                        <span className="text-[#c8f31d] font-bold">
+                          Copied to clipboard
+                        </span>
                       </>
                     ) : (
                       <>
@@ -274,7 +314,9 @@ export const Contact: React.FC<ContactProps> = ({ preselectedService }) => {
                   <Globe className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-xs text-[#9ea0a6] block mb-0.5 font-mono uppercase">Official Portfolio</span>
+                  <span className="text-xs text-[#9ea0a6] block mb-0.5 font-mono uppercase">
+                    Official Portfolio
+                  </span>
                   <a
                     href="https://www.viveksharmacoder.in/"
                     target="_blank"
@@ -283,7 +325,9 @@ export const Contact: React.FC<ContactProps> = ({ preselectedService }) => {
                   >
                     https://www.viveksharmacoder.in/
                   </a>
-                  <span className="text-xs text-zinc-400 block mt-0.5">Verified Personal Domain</span>
+                  <span className="text-xs text-zinc-400 block mt-0.5">
+                    Verified Personal Domain
+                  </span>
                 </div>
               </div>
             </div>
@@ -295,7 +339,9 @@ export const Contact: React.FC<ContactProps> = ({ preselectedService }) => {
                 <span>Client Privacy &amp; 24h Response SLA</span>
               </div>
               <p className="text-xs text-[#9ea0a6] leading-relaxed">
-                All client discussions, proprietary code, and project specifications are held in strict confidence. Initial technical assessments and cost estimates are provided within 24 hours.
+                All client discussions, proprietary code, and project
+                specifications are held in strict confidence. Initial technical
+                assessments and cost estimates are provided within 24 hours.
               </p>
             </div>
           </div>
@@ -317,7 +363,7 @@ export const Contact: React.FC<ContactProps> = ({ preselectedService }) => {
                       {successData.message}
                     </p>
                     <div className="mt-3 inline-block px-4 py-1.5 bg-[#121316] border border-white/10 rounded-full text-xs font-mono font-bold text-[#c8f31d]">
-                      Reference ID: {successData.inquiryId}
+                      Sent via viveksharmacoder
                     </div>
                   </div>
 
@@ -343,7 +389,9 @@ export const Contact: React.FC<ContactProps> = ({ preselectedService }) => {
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="border-b border-white/5 pb-4 mb-2">
-                    <h3 className="text-xl font-bold text-white font-display">Project Inquiry Form</h3>
+                    <h3 className="text-xl font-bold text-white font-display">
+                      Project Inquiry Form
+                    </h3>
                     <p className="text-xs text-[#9ea0a6] mt-0.5">
                       Tell me about your project scope, timeline, and goals.
                     </p>
@@ -367,11 +415,15 @@ export const Contact: React.FC<ContactProps> = ({ preselectedService }) => {
                   {/* Name & Email Row */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="name" className="block text-xs font-semibold text-zinc-300 mb-1.5 font-mono uppercase">
+                      <label
+                        htmlFor="name"
+                        className="block text-xs font-semibold text-zinc-300 mb-1.5 font-mono uppercase"
+                      >
                         Your Name <span className="text-[#c8f31d]">*</span>
                       </label>
                       <input
                         id="name"
+                        name="name"
                         type="text"
                         required
                         value={name}
@@ -382,11 +434,15 @@ export const Contact: React.FC<ContactProps> = ({ preselectedService }) => {
                     </div>
 
                     <div>
-                      <label htmlFor="email" className="block text-xs font-semibold text-zinc-300 mb-1.5 font-mono uppercase">
+                      <label
+                        htmlFor="email"
+                        className="block text-xs font-semibold text-zinc-300 mb-1.5 font-mono uppercase"
+                      >
                         Your Email <span className="text-[#c8f31d]">*</span>
                       </label>
                       <input
                         id="email"
+                        name="email"
                         type="email"
                         required
                         value={email}
@@ -399,17 +455,25 @@ export const Contact: React.FC<ContactProps> = ({ preselectedService }) => {
 
                   {/* Service Selector */}
                   <div>
-                    <label htmlFor="projectType" className="block text-xs font-semibold text-zinc-300 mb-1.5 font-mono uppercase">
+                    <label
+                      htmlFor="projectType"
+                      className="block text-xs font-semibold text-zinc-300 mb-1.5 font-mono uppercase"
+                    >
                       Service Category
                     </label>
                     <select
                       id="projectType"
+                      name="project_type"
                       value={projectType}
                       onChange={(e) => setProjectType(e.target.value)}
                       className="w-full px-4 py-3 text-sm bg-[#121316] border border-white/10 focus:border-[#c8f31d] rounded-xl text-white outline-none transition-colors"
                     >
                       {projectTypes.map((type) => (
-                        <option key={type} value={type} className="bg-[#18191d] text-white">
+                        <option
+                          key={type}
+                          value={type}
+                          className="bg-[#18191d] text-white"
+                        >
                           {type}
                         </option>
                       ))}
@@ -418,11 +482,16 @@ export const Contact: React.FC<ContactProps> = ({ preselectedService }) => {
 
                   {/* Message */}
                   <div>
-                    <label htmlFor="message" className="block text-xs font-semibold text-zinc-300 mb-1.5 font-mono uppercase">
-                      Project Description <span className="text-[#c8f31d]">*</span>
+                    <label
+                      htmlFor="message"
+                      className="block text-xs font-semibold text-zinc-300 mb-1.5 font-mono uppercase"
+                    >
+                      Project Description{" "}
+                      <span className="text-[#c8f31d]">*</span>
                     </label>
                     <textarea
                       id="message"
+                      name="message"
                       rows={4}
                       required
                       value={message}
@@ -432,15 +501,16 @@ export const Contact: React.FC<ContactProps> = ({ preselectedService }) => {
                     />
                   </div>
 
-                  {/* Direct email fallback */}
-                  <div className="pt-2">
-                    <a
-                      href={mailtoLink}
-                      className="w-full py-4 px-6 flex items-center justify-center gap-2 text-xs font-extrabold uppercase tracking-widest text-black bg-[#c8f31d] hover:bg-white rounded-full text-center transition-all shadow-xl shadow-[#c8f31d]/20"
+                  {/* Submit */}
+                  <div className="pt-2 space-y-3">
+                    <button
+                      type="submit"
+                      disabled={loading}
+                      className="w-full py-4 px-6 flex items-center justify-center gap-2 text-xs font-extrabold uppercase tracking-widest text-black bg-[#c8f31d] hover:bg-white disabled:opacity-60 disabled:cursor-not-allowed rounded-full text-center transition-all shadow-xl shadow-[#c8f31d]/20"
                     >
-                      <span>Send Your Query</span>
+                      <span>{loading ? "Sending..." : "Send Your Query"}</span>
                       <Send className="w-4 h-4" />
-                    </a>
+                    </button>
                   </div>
                 </form>
               )}

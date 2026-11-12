@@ -9,7 +9,7 @@ export const Resume: React.FC = () => {
       company: 'AdGlobal360 Hakuhodo, Ltd.',
       location: 'Gurgaon, Haryana, India',
       description:
-        'Leading frontend engineering delivery for enterprise automotive titans including Tata Motors and Maruti Suzuki. Architecting scalable, responsive web portals with strict performance budgets, sub-second LCP, and seamless cross-browser parity.',
+        'Leading frontend engineering delivery for enterprise clients including Pulse Shift Tool, Maruti Suzuki, TVS Motors, and Muthoot Finance. Architecting scalable, responsive web experiences with strict performance budgets, sub-second LCP, and seamless cross-browser parity.',
       skills: ['React.js', 'TypeScript', 'Tailwind CSS', 'Next.js', 'Core Web Vitals', 'GTM', 'Agile Delivery'],
     },
     {

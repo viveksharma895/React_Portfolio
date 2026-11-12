@@ -1,16 +1,134 @@
 import React, { useState } from 'react';
-import { Eye, ShieldCheck, ArrowUpRight } from 'lucide-react';
+import { ShieldCheck } from 'lucide-react';
 import { projectsData, projectCategories, ProjectItem } from '../data/projects';
-import { ProjectModal } from './ProjectModal';
 
 export const Projects: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('All');
-  const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
+  const [expandedTechIds, setExpandedTechIds] = useState<Set<string>>(new Set());
 
   const filteredProjects =
     activeCategory === 'All'
       ? projectsData
       : projectsData.filter((proj) => proj.category === activeCategory);
+
+  const toggleTechExpanded = (projectId: string) => {
+    setExpandedTechIds((prev) => {
+      const next = new Set(prev);
+      if (next.has(projectId)) {
+        next.delete(projectId);
+      } else {
+        next.add(projectId);
+      }
+      return next;
+    });
+  };
+
+  const renderProjectArtwork = (project: ProjectItem) => {
+    const { category } = project;
+    const key = `${category.replace(/[^a-zA-Z]/g, '')}-${project.id.replace(/[^a-zA-Z0-9]/g, '')}`;
+    const commonDefs = (
+      <defs>
+        <pattern id={`proj-grid-${key}`} width="20" height="20" patternUnits="userSpaceOnUse">
+          <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#ffffff" strokeOpacity="0.06" strokeWidth="1" />
+        </pattern>
+        <radialGradient id={`proj-glow-a-${key}`} cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#a5f3fc" stopOpacity="0.22" />
+          <stop offset="100%" stopColor="#a5f3fc" stopOpacity="0" />
+        </radialGradient>
+        <radialGradient id={`proj-glow-b-${key}`} cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#d9f99d" stopOpacity="0.18" />
+          <stop offset="100%" stopColor="#d9f99d" stopOpacity="0" />
+        </radialGradient>
+      </defs>
+    );
+
+    if (category === 'Enterprise') {
+      return (
+        <svg viewBox="0 0 400 250" className="w-full h-full hero-art" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          {commonDefs}
+          <rect width="400" height="250" fill={`url(#proj-grid-${key})`} />
+          <circle cx="70" cy="60" r="90" fill={`url(#proj-glow-a-${key})`} className="hero-pulse" />
+          <circle cx="330" cy="200" r="110" fill={`url(#proj-glow-b-${key})`} className="hero-pulse" />
+          <g className="hero-float-slow" transform="translate(200 125)">
+            <path d="M0 -46 L40 -28 V8 C40 32 22 52 0 64 C-22 52 -40 32 -40 8 V-28 Z" fill="#e0f2fe" fillOpacity="0.12" stroke="#bae6fd" strokeOpacity="0.7" strokeWidth="2" />
+            <path d="M-12 6 L-2 16 L18 -8" fill="none" stroke="#d9f99d" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+          </g>
+          <g className="hero-float" transform="translate(88 170)">
+            <rect x="-26" y="-18" width="52" height="36" rx="6" fill="#fef9c3" fillOpacity="0.08" stroke="#fde68a" strokeOpacity="0.6" strokeWidth="1.5" />
+            <path d="M-14 -6 h28 M-14 2 h18 M-14 10 h10" stroke="#fde68a" strokeOpacity="0.7" strokeWidth="2" strokeLinecap="round" />
+          </g>
+          <g className="hero-spin-slow" style={{ transformOrigin: '320px 70px' }}>
+            <circle cx="320" cy="70" r="22" fill="none" stroke="#e9d5ff" strokeOpacity="0.5" strokeWidth="1.5" strokeDasharray="4 6" />
+            <circle cx="320" cy="70" r="5" fill="#e9d5ff" fillOpacity="0.7" />
+            <circle cx="342" cy="70" r="3" fill="#bae6fd" fillOpacity="0.8" />
+            <circle cx="298" cy="70" r="3" fill="#d9f99d" fillOpacity="0.8" />
+          </g>
+          <g className="hero-orbit" style={{ transformOrigin: '200px 125px' }}>
+            <circle cx="200" cy="125" r="92" fill="none" stroke="#ffffff" strokeOpacity="0.08" strokeWidth="1" />
+            <circle cx="292" cy="125" r="4" fill="#bae6fd" fillOpacity="0.8" />
+          </g>
+        </svg>
+      );
+    }
+
+    if (category === 'React & Next.js') {
+      return (
+        <svg viewBox="0 0 400 250" className="w-full h-full hero-art" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          {commonDefs}
+          <rect width="400" height="250" fill={`url(#proj-grid-${key})`} />
+          <circle cx="320" cy="60" r="90" fill={`url(#proj-glow-a-${key})`} className="hero-pulse" />
+          <circle cx="80" cy="200" r="100" fill={`url(#proj-glow-b-${key})`} className="hero-pulse" />
+          <g transform="translate(200 125)">
+            <g className="hero-spin-slow" style={{ transformOrigin: '0px 0px' }}>
+              <ellipse rx="62" ry="24" fill="none" stroke="#a5f3fc" strokeOpacity="0.7" strokeWidth="2" />
+              <ellipse rx="62" ry="24" fill="none" stroke="#bae6fd" strokeOpacity="0.5" strokeWidth="2" transform="rotate(60)" />
+              <ellipse rx="62" ry="24" fill="none" stroke="#d9f99d" strokeOpacity="0.45" strokeWidth="2" transform="rotate(120)" />
+              <circle r="8" fill="#e0f2fe" fillOpacity="0.9" />
+            </g>
+          </g>
+          <g className="hero-float" transform="translate(78 78)">
+            <text x="0" y="0" fontFamily="monospace" fontSize="34" fontWeight="700" fill="#fef3c7" fillOpacity="0.85">&lt;/&gt;</text>
+          </g>
+          <g className="hero-float-slow" transform="translate(318 175)">
+            <rect x="-28" y="-18" width="56" height="36" rx="8" fill="#dcfce7" fillOpacity="0.1" stroke="#bbf7d0" strokeOpacity="0.6" strokeWidth="1.5" />
+            <path d="M-10 0 h20 M0 -10 v20" stroke="#bbf7d0" strokeOpacity="0.8" strokeWidth="2" strokeLinecap="round" />
+          </g>
+          <path d="M40 140 C 90 100, 130 150, 170 120" fill="none" stroke="#bae6fd" strokeOpacity="0.4" strokeWidth="2" strokeDasharray="6 8" className="hero-dash" />
+          <path d="M230 130 C 270 170, 310 110, 360 150" fill="none" stroke="#d9f99d" strokeOpacity="0.35" strokeWidth="2" strokeDasharray="6 8" className="hero-dash" />
+        </svg>
+      );
+    }
+
+    // E-commerce & CMS (and fallback)
+    return (
+      <svg viewBox="0 0 400 250" className="w-full h-full hero-art" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        {commonDefs}
+        <rect width="400" height="250" fill={`url(#proj-grid-${key})`} />
+        <circle cx="90" cy="70" r="95" fill={`url(#proj-glow-b-${key})`} className="hero-pulse" />
+        <circle cx="320" cy="190" r="100" fill={`url(#proj-glow-a-${key})`} className="hero-pulse" />
+        <g className="hero-float" transform="translate(200 128)">
+          <path d="M-44 -20 h14 l8 40 h52 l10 -28 h-58" fill="none" stroke="#e0f2fe" strokeOpacity="0.8" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+          <circle cx="-12" cy="30" r="6" fill="#fef3c7" fillOpacity="0.9" />
+          <circle cx="22" cy="30" r="6" fill="#fef3c7" fillOpacity="0.9" />
+          <path d="M-30 -20 l-6 -14 h-10" fill="none" stroke="#e0f2fe" strokeOpacity="0.7" strokeWidth="2.5" strokeLinecap="round" />
+        </g>
+        <g className="hero-float-slow" transform="translate(92 175)">
+          <rect x="-22" y="-26" width="44" height="52" rx="6" fill="#fce7f3" fillOpacity="0.1" stroke="#fbcfe8" strokeOpacity="0.7" strokeWidth="1.5" />
+          <circle cx="0" cy="-6" r="5" fill="#fbcfe8" fillOpacity="0.8" />
+          <path d="M-10 10 h20 M-10 18 h14" stroke="#fbcfe8" strokeOpacity="0.7" strokeWidth="2" strokeLinecap="round" />
+        </g>
+        <g className="hero-spin-slow" style={{ transformOrigin: '312px 78px' }}>
+          <circle cx="312" cy="78" r="24" fill="none" stroke="#bbf7d0" strokeOpacity="0.55" strokeWidth="2" strokeDasharray="5 7" />
+          <text x="312" y="84" textAnchor="middle" fontFamily="monospace" fontSize="18" fontWeight="700" fill="#dcfce7" fillOpacity="0.85">%</text>
+        </g>
+        <g className="hero-orbit-reverse" style={{ transformOrigin: '200px 128px' }}>
+          <circle cx="200" cy="128" r="96" fill="none" stroke="#ffffff" strokeOpacity="0.07" strokeWidth="1" />
+          <circle cx="104" cy="128" r="4" fill="#d9f99d" fillOpacity="0.8" />
+          <circle cx="296" cy="128" r="3" fill="#bae6fd" fillOpacity="0.8" />
+        </g>
+      </svg>
+    );
+  };
 
   return (
     <section id="projects" className="py-12 sm:py-16 md:py-32 relative bg-[#121316] border-t border-white/10">
@@ -59,8 +177,11 @@ export const Projects: React.FC = () => {
             >
               <div>
                 {/* Visual Header */}
-                <div className={`relative aspect-[16/10] bg-gradient-to-br ${project.accentColor} p-6 flex flex-col justify-between overflow-hidden`}>
-                  <div className="absolute inset-0 bg-black/40 backdrop-blur-[1px]" />
+                <div className="relative aspect-[16/10] bg-[#0f1013] p-6 flex flex-col justify-between overflow-hidden">
+                  <div className="absolute inset-0 pointer-events-none">
+                    {renderProjectArtwork(project)}
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/20" />
 
                   {/* Top Badges */}
                   <div className="relative z-10 flex items-center justify-between">
@@ -93,7 +214,10 @@ export const Projects: React.FC = () => {
 
                   {/* Tech Stack Chips */}
                   <div className="flex flex-wrap gap-1.5 mb-6">
-                    {project.technologies.slice(0, 4).map((tech) => (
+                    {(expandedTechIds.has(project.id)
+                      ? project.technologies
+                      : project.technologies.slice(0, 4)
+                    ).map((tech) => (
                       <span
                         key={tech}
                         className="px-2.5 py-1 text-[11px] font-mono text-zinc-300 bg-[#121316] border border-white/5 rounded-md"
@@ -102,46 +226,28 @@ export const Projects: React.FC = () => {
                       </span>
                     ))}
                     {project.technologies.length > 4 && (
-                      <span className="px-2.5 py-1 text-[11px] font-mono font-bold text-[#c8f31d] bg-[#121316] border border-[#c8f31d]/20 rounded-md">
-                        +{project.technologies.length - 4} more
-                      </span>
+                      <button
+                        type="button"
+                        onClick={() => toggleTechExpanded(project.id)}
+                        aria-expanded={expandedTechIds.has(project.id)}
+                        className="px-2.5 py-1 text-[11px] font-mono font-bold text-[#c8f31d] bg-[#121316] border border-[#c8f31d]/20 rounded-md hover:bg-[#c8f31d]/10 transition-colors"
+                      >
+                        {expandedTechIds.has(project.id)
+                          ? 'Show less'
+                          : `+${project.technologies.length - 4} more`}
+                      </button>
                     )}
                   </div>
                 </div>
               </div>
 
-              {/* Bottom Actions Row */}
-              <div className="px-6 pb-6 pt-3 border-t border-white/5 flex items-center justify-between gap-3">
-                <button
-                  onClick={() => setSelectedProject(project)}
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-white hover:text-[#c8f31d] transition-colors"
-                >
-                  <Eye className="w-4 h-4 text-[#c8f31d]" />
-                  <span>Technical Breakdown</span>
-                </button>
 
-                {project.liveUrl && (
-                  <a
-                    href={project.liveUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-1 text-xs font-bold text-[#c8f31d] hover:text-white transition-colors"
-                  >
-                    <span>Live Showcase</span>
-                    <ArrowUpRight className="w-4 h-4" />
-                  </a>
-                )}
-              </div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Detail Modal Lightbox */}
-      <ProjectModal
-        project={selectedProject}
-        onClose={() => setSelectedProject(null)}
-      />
+
     </section>
   );
 };

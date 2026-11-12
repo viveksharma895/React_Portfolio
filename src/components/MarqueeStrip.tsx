@@ -4,8 +4,10 @@ export const MarqueeStrip: React.FC = () => {
   const items = [
     'React.js Developer',
     'Next.js 15',
-    'Tata Motors Enterprise',
+    'Pulse Shift Tool',
     'Maruti Suzuki Platform',
+    'TVS Motors Digital',
+    'Muthoot Finance Web',
     'WordPress & WooCommerce',
     'Shopify Headless',
     'TypeScript ES6+',

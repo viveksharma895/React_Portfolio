@@ -60,7 +60,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </p>
             </div>
             <p className="text-xs text-[#9ea0a6] leading-relaxed max-w-sm">
-              Currently working as Engineer Delivery at AdGlobal360 Hakuhodo, Ltd. Delivering scalable web platforms for Tata Motors and Maruti Suzuki.
+              Currently working as Engineer Delivery at AdGlobal360 Hakuhodo, Ltd. Delivering scalable web platforms for Pulse Shift Tool, Maruti Suzuki, TVS Motors, and Muthoot Finance.
             </p>
             <div className="flex items-center gap-1.5 text-xs text-zinc-400 font-mono">
               <MapPin className="w-3.5 h-3.5 text-[#c8f31d]" />

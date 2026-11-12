@@ -18,20 +18,20 @@ export const projectCategories = ['All', 'Enterprise', 'React & Next.js', 'E-com
 
 export const projectsData: ProjectItem[] = [
   {
-    id: 'tata-motors',
-    title: 'Tata Motors Digital Experience & Showroom Portal',
-    clientType: 'Enterprise Automotive Client (via AdGlobal360 Hakuhodo)',
+    id: 'pulse-shift-tool',
+    title: 'Pulse Shift Tool & Lead Experience Interfaces',
+    clientType: 'Ad Intelligence & Monitoring Platform (Adglobal360 Private Limited)',
     category: 'Enterprise',
     isEnterpriseClient: true,
     summary:
-      'Engineered scalable, responsive frontend interfaces for Tata Motors digital ecosystem, ensuring rapid vehicle configuration and seamless lead generation.',
+      'Built and optimized high-conversion landing experiences and campaign interfaces for Pulse Shift Tool, an ad intelligence and monitoring platform by Adglobal360, enabling faster lead capture and measurable performance outcomes.',
     challenge:
-      'High traffic volume demanding sub-second load times, complex interactive vehicle feature comparisons, and strict brand design compliance across desktop and mobile.',
+      'Campaign launches required rapid turnaround, consistent tracking, mobile-first performance, and seamless integration across multiple marketing funnels and audience segments.',
     solution:
-      'Built modular React components with optimized asset pipelines, implemented fine-grained Core Web Vitals optimizations, and streamlined user exploration funnels.',
-    technologies: ['React.js', 'TypeScript', 'Tailwind CSS', 'Redux', 'GTM', 'Core Web Vitals'],
+      'Delivered responsive, SEO-friendly pages with clean component architecture, integrated analytics and event tracking, and optimized load times to improve engagement and lead quality.',
+    technologies: ['React.js', 'JavaScript (ES6+)', 'HTML5/CSS3', 'Tailwind CSS', 'Ad Pixel Tracking', 'Google Tag Manager'],
     liveUrl: 'https://www.viveksharmacoder.in/',
-    demoNote: 'Enterprise Production Client — Deliverable under AdGlobal360 Hakuhodo',
+    demoNote: 'Pulse Shift Tool — Ad intelligence and monitoring platform delivery by Adglobal360',
     featured: true,
     accentColor: 'from-blue-600 to-indigo-700',
   },
@@ -52,6 +52,42 @@ export const projectsData: ProjectItem[] = [
     demoNote: 'Enterprise Production Client — Deliverable under AdGlobal360 Hakuhodo',
     featured: true,
     accentColor: 'from-cyan-600 to-blue-700',
+  },
+  {
+    id: 'tvs-motors',
+    title: 'TVS Motors Digital Experience & Product Microsites',
+    clientType: 'Enterprise Automotive Client (via AdGlobal360 Hakuhodo)',
+    category: 'Enterprise',
+    isEnterpriseClient: true,
+    summary:
+      'Developed responsive digital experiences and product-focused microsites for TVS Motors, supporting campaign visibility, customer discovery, and lead generation.',
+    challenge:
+      'Delivering visually rich, brand-consistent pages with strong performance, cross-device compatibility, and quick iteration cycles for marketing and product campaigns.',
+    solution:
+      'Implemented reusable frontend modules, optimized media/assets for faster rendering, and ensured cross-browser stability with analytics-ready campaign pages.',
+    technologies: ['React.js', 'TypeScript', 'Tailwind CSS', 'JavaScript (ES6+)', 'GA4', 'Core Web Vitals'],
+    liveUrl: 'https://www.viveksharmacoder.in/',
+    demoNote: 'Enterprise Production Client — Digital and campaign experience delivery',
+    featured: true,
+    accentColor: 'from-emerald-600 to-teal-700',
+  },
+  {
+    id: 'muthoot-finance',
+    title: 'Muthoot Finance Customer Journey & Service Pages',
+    clientType: 'Financial Services Enterprise Client (via AdGlobal360 Hakuhodo)',
+    category: 'Enterprise',
+    isEnterpriseClient: true,
+    summary:
+      'Delivered scalable, secure-feeling frontend experiences for Muthoot Finance service and customer journey pages, focused on clarity, trust, and conversion.',
+    challenge:
+      'Financial services pages required clear information architecture, strong accessibility, fast load performance, and reliable behavior across devices and browsers.',
+    solution:
+      'Built structured, responsive UI components with performance-minded implementation, improved content presentation for key services, and supported analytics/tracking needs.',
+    technologies: ['React.js', 'Next.js', 'TypeScript', 'Tailwind CSS', 'SEO', 'Google Tag Manager'],
+    liveUrl: 'https://www.viveksharmacoder.in/',
+    demoNote: 'Enterprise Production Client — Customer journey and service page delivery',
+    featured: true,
+    accentColor: 'from-amber-600 to-orange-700',
   },
   {
     id: 'nextjs-headless-commerce',
